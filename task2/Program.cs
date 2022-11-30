@@ -1,12 +1,15 @@
-﻿//задача 2.определить чётность числа
-int a = 9;
+﻿//3 задача.Найти все чётные числа от 1 до N
+Console.WriteLine("Введите число: ");
+int a = Convert.ToInt32(Console.ReadLine());
+int start = 1;
+while (start <= a)
+            {
+                if (start % 2 != 1)
+                {
+                    Console.Write(start + " ");
+                    
+                }
+                start++;
+            }
 
-if ( a/2==0 )
-{
-Console.Write("Число чётное");
-}
-else
-{
-     Console.Write("число нечётное");
-}
-   
+           
