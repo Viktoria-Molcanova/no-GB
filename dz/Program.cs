@@ -1,11 +1,5 @@
 ﻿
-Console.WriteLine("Введите день недели ");
-int d = Convert.ToInt32(Console.ReadLine());
-if (d==6||d==7)
-{
-Console.Write("Выходной день");
-}
-else
-{
-     Console.Write("будни");
-}
+Console.WriteLine("Введите число ");
+int a = Convert.ToInt32(Console.ReadLine());
+a = (a / 10) % 10;
+Console.WriteLine(a);
