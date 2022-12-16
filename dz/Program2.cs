@@ -2,57 +2,23 @@
 {
     static void Main()
     {
+      //Введение значений и чисел k и b
       
-       //Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
+    Console.WriteLine("введите значение b1");
+    double b1 = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("введите число k1");
+    double k1 = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("введите значение b2");
+    double b2 = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("введите число k2");
+    double k2 = Convert.ToInt32(Console.ReadLine());
 
-      //Создание массива
+    //Расчёт пересечения двух прямых
 
-      Console.WriteLine("Введите длину массива:  ");
-      int size = Convert.ToInt32(Console.ReadLine());
+    double x = (-b2 + b1)/(-k1 + k2);
+    double y = k2 * x + b2;
 
-      //Определение размера массива
+    //Печать результатов вычисления
 
-      int[] array = new int[size];
-      RandomNumbers(array);
-
-      //Печать массива
-
-      Console.WriteLine("Массив: ");
-      PrintArray(array);
-
-      //Заполнение массива случайными трёхзначными числами
-
-      void RandomNumbers(int[] array)
-      {
-      for(int i = 0; i < size; i++)
-      {
-        array[i] = new Random().Next(100,1000);
-      }
-      }
-
-      //Определение чётности чисел в массиве
-
-      int count = 0;
-
-      for (int a = 0; a < array.Length; a++)
-      {
-      if (array[a] % 2 == 0)
-      count++;
-      }
-
-      //Печать результата
-
-      Console.WriteLine($"из {array.Length} чисел, {count} четных");
-      void PrintArray(int[] array)
-      {
-      Console.Write("[ ");
-      for(int i = 0; i < array.Length; i++)
-      {
-      Console.Write(array[i] + " ");
-      }
-      Console.Write("]");
-      Console.WriteLine();
-      }  
-  }
-    
-}
+  Console.WriteLine($"две прямые пересекутся в точке с координатами X: {x}, Y: {y}");
+}}
