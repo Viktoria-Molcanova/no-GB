@@ -1,24 +1,46 @@
-﻿static class Lesson456
+﻿public static class Lesson457
 {
     static void Main()
     {
-      //Введение значений и чисел k и b
-      
-    Console.WriteLine("введите значение b1");
-    double b1 = Convert.ToInt32(Console.ReadLine());
-    Console.WriteLine("введите число k1");
-    double k1 = Convert.ToInt32(Console.ReadLine());
-    Console.WriteLine("введите значение b2");
-    double b2 = Convert.ToInt32(Console.ReadLine());
-    Console.WriteLine("введите число k2");
-    double k2 = Convert.ToInt32(Console.ReadLine());
 
-    //Расчёт пересечения двух прямых
+      /*Задача 47. 
+      Задайте двумерный массив размером m×n, заполненный случайными вещественными числами.
+      */
+    
+    int colums = ReadInt("Укажите количество столбцов: ");
+    int rows = ReadInt("Укажите количество строк: ");
+    double[,] numbers = new double[rows, colums];
+    FillArray2D(numbers);
+    PrintArray2D(numbers);
+    // Ввод массива
+    int ReadInt(string message)
+    {
+    Console.Write(message);
+    return Convert.ToInt32(Console.ReadLine());
+    }
+    // Функция заполнения массива 
+    void FillArray2D(double[,] array)
+    {
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = new Random().Next(-100, 100) / 10.0;
+        }
+    }
+}
 
-    double x = (-b2 + b1)/(-k1 + k2);
-    double y = k2 * x + b2;
-
-    //Печать результатов вычисления
-
-  Console.WriteLine($"две прямые пересекутся в точке с координатами X: {x}, Y: {y}");
-}}
+    //  Функция вывода массива в терминал
+    void PrintArray2D(double[,] array)
+    {
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+        for (int j = 0; j < array.GetLength(1); j++)
+            {
+                Console.Write(array[i, j] + " ");
+            }
+                Console.WriteLine();
+         }
+    Console.WriteLine();
+}
+    }}
