@@ -2,45 +2,59 @@
 {
     static void Main()
     {
+    int[,] array = new int[3, 4];
 
-      /*Задача 47. 
-      Задайте двумерный массив размером m×n, заполненный случайными вещественными числами.
-      */
-    
-    int colums = ReadInt("Укажите количество столбцов: ");
-    int rows = ReadInt("Укажите количество строк: ");
-    double[,] numbers = new double[rows, colums];
-    FillArray2D(numbers);
-    PrintArray2D(numbers);
-    // Ввод массива
-    int ReadInt(string message)
-    {
-    Console.Write(message);
-    return Convert.ToInt32(Console.ReadLine());
-    }
-    // Функция заполнения массива 
-    void FillArray2D(double[,] array)
-    {
+FillArrayRandom(array);
+PrintArray(array);
+Sortirovka(array);
+Console.WriteLine();
+PrintArray(array);
+
+// Функция заполнения массива числами от 1 до 100
+
+void FillArrayRandom(int[,] array)
+{
     for (int i = 0; i < array.GetLength(0); i++)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            array[i, j] = new Random().Next(-100, 100) / 10.0;
+            array[i, j] = new Random().Next(1, 100);
         }
     }
 }
 
-    //  Функция вывода массива в терминал
-    void PrintArray2D(double[,] array)
+// Функция сортировки по убыванию строки  массива 
+
+void Sortirovka(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-        for (int i = 0; i < array.GetLength(0); i++)
-        {
         for (int j = 0; j < array.GetLength(1); j++)
+        {
+            for (int k = 0; k < array.GetLength(1) - 1; k++)
             {
-                Console.Write(array[i, j] + " ");
+                if (array[i, k] < array[i, k + 1])
+                {
+                    int temp = array[i, k + 1];
+                    array[i, k + 1] = array[i, k];
+                    array[i, k] = temp;
+                }
             }
-                Console.WriteLine();
-         }
-    Console.WriteLine();
+        }
+    }
 }
-    }}
+
+// Функция вывода массива
+
+void PrintArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write($"{array[i, j]} ");
+        }
+        Console.WriteLine();
+    }
+}
+}}
