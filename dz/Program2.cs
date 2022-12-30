@@ -2,59 +2,26 @@
 {
     static void Main()
     {
-    int[,] array = new int[3, 4];
+   
+ //Задача 64: Задайте значения N. Напишите программу, которая выведет все натуральные числа в промежутке от N до 1.
+ 
+ 
+Console.Write("Введите число: ");
+int num = Convert.ToInt32(Console.ReadLine());
+int count = 1;
+NaturalNumber(num, count);
+//Метод поиска натуральных чисел и вывода результатов
 
-FillArrayRandom(array);
-PrintArray(array);
-Sortirovka(array);
-Console.WriteLine();
-PrintArray(array);
-
-// Функция заполнения массива числами от 1 до 100
-
-void FillArrayRandom(int[,] array)
+void NaturalNumber(int a, int count)
 {
-    for (int i = 0; i < array.GetLength(0); i++)
+    if (count > a)
     {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            array[i, j] = new Random().Next(1, 100);
-        }
+        return;
     }
-}
-
-// Функция сортировки по убыванию строки  массива 
-
-void Sortirovka(int[,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
+    else
     {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            for (int k = 0; k < array.GetLength(1) - 1; k++)
-            {
-                if (array[i, k] < array[i, k + 1])
-                {
-                    int temp = array[i, k + 1];
-                    array[i, k + 1] = array[i, k];
-                    array[i, k] = temp;
-                }
-            }
-        }
-    }
-}
-
-// Функция вывода массива
-
-void PrintArray(int[,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            Console.Write($"{array[i, j]} ");
-        }
-        Console.WriteLine();
+        NaturalNumber(a, count + 1);
+        Console.Write(count + " ");
     }
 }
 }}
