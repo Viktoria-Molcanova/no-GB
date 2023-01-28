@@ -3,25 +3,40 @@
     static void Main()
     {
    
- //Задача 64: Задайте значения N. Напишите программу, которая выведет все натуральные числа в промежутке от N до 1.
- 
- 
-Console.Write("Введите число: ");
-int num = Convert.ToInt32(Console.ReadLine());
-int count = 1;
-NaturalNumber(num, count);
-//Метод поиска натуральных чисел и вывода результатов
+//Задача Написать программу, которая из имеющегося массива строк формирует массив из строк, 
+//формирует массив из строк, длина которых меньше либо равна 3 символа. 
 
-void NaturalNumber(int a, int count)
+string[] arrayOne = new string[5] {"44", "Cruassan", "hello", "world", "GB"};
+string[] arrayTwo = new string[arrayOne.Length];
+
+// Метод определения 3 элементов в массиве
+
+void CorrectLength (string[] arrayOne, string[] arrayTwo)
 {
-    if (count > a)
+    int count = 0;
+    for (int i = 0; i < arrayOne.Length; i++)
     {
-        return;
-    }
-    else
-    {
-        NaturalNumber(a, count + 1);
-        Console.Write(count + " ");
+    if(arrayOne[i].Length <= 3)
+        {
+        arrayTwo[count] = arrayOne[i];
+        count = count + 1;
+        }
     }
 }
-}}
+
+//Метод печати массива
+
+void PrintArray(string[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write($"{array[i]} ");
+    }
+    Console.WriteLine();
+}
+//Объявление методов
+
+CorrectLength(arrayOne, arrayTwo);
+PrintArray(arrayTwo);
+    }
+}
