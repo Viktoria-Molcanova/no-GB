@@ -1,42 +1,14 @@
 ﻿public static class Lesson457
 {
-    static void Main()
+    static void Main(string[] args)
     {
-   
-//Задача Написать программу, которая из имеющегося массива строк формирует массив из строк, 
-//формирует массив из строк, длина которых меньше либо равна 3 символа. 
-
-string[] arrayOne = new string[5] {"44", "Cruassan", "hello", "world", "GB"};
-string[] arrayTwo = new string[arrayOne.Length];
-
-// Метод определения 3 элементов в массиве
-
-void CorrectLength (string[] arrayOne, string[] arrayTwo)
+System.Console.Write("Введите количество элементов в массиве");
+int count = int.Parse(Console.ReadLine());
+int[] myArray = new int [count];
+for(int i = 0; i<count;i++)
 {
-    int count = 0;
-    for (int i = 0; i < arrayOne.Length; i++)
-    {
-    if(arrayOne[i].Length <= 3)
-        {
-        arrayTwo[count] = arrayOne[i];
-        count = count + 1;
-        }
-    }
+    Console.Write($"Введите элемент массива {i}:");
+    myArray[i] = int.Parse(Console.ReadLine());
 }
-
-//Метод печати массива
-
-void PrintArray(string[] array)
-{
-    for (int i = 0; i < array.Length; i++)
-    {
-        Console.Write($"{array[i]} ");
-    }
-    Console.WriteLine();
-}
-//Объявление методов
-
-CorrectLength(arrayOne, arrayTwo);
-PrintArray(arrayTwo);
     }
 }
